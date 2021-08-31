@@ -1,14 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
     <title>Time Table</title>
 </head>
 <body>
-    <h1>
-        Hello World
-    </h1>
+    <div class="cover">
+        <div class="bg"></div>
+        <div class="board">
+            <h1>Enter 9-digit Roll Number</h1>
+            <input class='roll-input' onfocus="zoomin()" onblur="zoomout()">
+        </div>
+    </div>
+
+    
 </body>
+<script>
+    const zoom = document.querySelector('.bg');
+    function zoomin(){
+        zoom.style.cssText='transform:scale(1.1);';
+    }
+    function zoomout(){
+        zoom.style.cssText='transform:scale(1.0);';
+    }
+</script>
 </html>
