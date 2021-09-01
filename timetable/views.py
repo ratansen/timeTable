@@ -10,3 +10,10 @@ from django.contrib import messages
 def index(request):
     return render(request,'index.html')
 
+def showtable(request):
+    if request.method=='GET':
+        return render(request,'table.html')
+
+
+def adminpanel(request):
+    return render(request,'admin.html')

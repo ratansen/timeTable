@@ -31,6 +31,18 @@
 }
 .board{
     margin-top: 50px;
+    text-align: center;
+}
+.progress{
+    position:absolute;
+    top:0;
+    left:0;
+    height:110%;
+    width:110%;
+    z-index: -99;
+    background-color: #008000;
+    transform: translateX(-100%);
+    transition: all 0.5s;
 }
 
 .roll-input{
@@ -47,6 +59,30 @@
     backdrop-filter: blur(10px);
     letter-spacing: 10px;
 }
+.go{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height:60px;
+    width:200px;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    background-color: rgb(255,255,255,0);
+    border: 3px solid #2ECC71 ;
+    border-radius: 10px;
+    position:relative;
+    overflow: hidden;
+
+}
+
 input:focus{
     outline: none;
+}
+.admin{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 1rem;
 }
