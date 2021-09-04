@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'css/index.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Time Table</title>
 </head>
 <body>
@@ -15,14 +16,14 @@
             <h1>Enter 9-digit Roll Number</h1>
             <form method="GET" action="showtable">
                 <!-- {% csrf_token %} -->
-            <input class='roll-input' name="rollNumber" id='rollNumber' onfocus="zoomin()" onblur="zoomout()" onkeyup="handleinput()" maxlength="9">
+            <input type="number" class='roll-input' name="rollNumber" id='rollNumber' onfocus="zoomin()" onblur="zoomout()" onkeyup="handleinput()" maxlength="9">
             <button class='go' type="submit">
                 <div class="progress"></div>
-                Go
+                <i class="fa fa-forward"></i>
             </button>
             </form>
         </div>
-        <div class="admin"><a href="/adminpanel">Admin Login</a></div>
+        <a href="/adminpanel"><i class="fa fa-sign-in signin"></i></a>
     </div>
 
     

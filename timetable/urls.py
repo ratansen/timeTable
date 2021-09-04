@@ -5,5 +5,6 @@ urlpatterns = [
     path('',views.index, name="index"),
     path('showtable',views.showtable, name="showtable"),
     path('adminpanel',views.adminpanel, name="adminpanel"),
+    path('submit',views.submit, name="submit"),
 
 ]
