@@ -84,3 +84,7 @@ form{
 .back:hover{
     color: #fff;
 }
+.head{
+    display: inline-block;
+    margin-left: 50vw;
+}
