@@ -1,3 +1,4 @@
+from typing import NoReturn
 from timetable.models import Timetable
 from django.shortcuts import render
 from django.contrib.messages.api import error
@@ -5,7 +6,8 @@ from django.http import HttpResponseRedirect, response
 from django.db.models import query
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate
+from django.contrib import auth
 from django.contrib import messages
 
 days=['mon','tue','wed','thur','fri']
@@ -18,19 +20,41 @@ def index(request):
 def showtable(request):
     roll=request.GET['rollNumber']
     if(roll==''):
-        return render(request,'index.html')
+        return HttpResponseRedirect('/')
     roll=int(roll)
-    if Timetable.objects.filter(roll_number=roll).exists():
+    if Timetable.objects.filter(roll_number=roll).exists() :
         tt=Timetable.objects.filter(roll_number=roll)
         for i in tt:
-            d={"tt":i}
+            d={"tt":i }
         return render(request,'table.html',d)
     else:
         return render(request,'index.html',{"invalid":True})
+        # return HttpResponseRedirect('/')
 
 
 def adminpanel(request):
-    return render(request,'admin.html')
+    if (request.user.is_authenticated):
+        return render(request,'admin.html')
+    else:
+        return redirect('/login')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+def login(request):
+    if (request.method == "POST"):
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username = username, password = password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/adminpanel')
+        else:
+            return render(request,'login.html',{"invalid":True})
+    else:
+        return render(request, 'login.html')
 
 def submit(request):
     lower=int(request.POST['lower'])
@@ -82,4 +106,3 @@ def submit(request):
             fri_4_5 = getslots[ 39 ],
         )
     return redirect('/adminpanel')
-

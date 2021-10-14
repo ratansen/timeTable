@@ -11,10 +11,14 @@ body{
     background-image:linear-gradient( 
         270deg
         , rgba(176, 42, 42, .16) 0%, rgba(176, 42, 42, .56) 18.45%, rgba(176, 42, 42, .8) 49.67%, rgba(176, 42, 42, .56) 82.52%, rgba(176, 42, 42, .196364) 99.7%, rgba(189, 40, 40, 0) 99.71%, rgba(203, 56, 55, 0) 99.72%, rgba(203, 56, 55, .16) 99.73%), url('/static/images/bg.png');
+    /* background-color: rgba(240, 243, 244, 1); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    /* background: #bdc3c7;  
+    background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7); 
+    background: linear-gradient(to bottom, #2c3e50, #bdc3c7);  */
 }
 
 .cover{
@@ -45,7 +49,23 @@ form{
     width: 95vw;
     background-color: rgba(240, 243, 244, 1);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 20px;
 }
+table th{
+  color: #00000063;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* background-color: rgba(128, 128, 128, 0.349); */
+}
+th{
+  height: 70px;
+}
+td{
+  color: #fff;
+  position: relative;
+  -webkit-transform-style: preserve-3d; -webkit-backface-visibility: hidden;
+}
+
+
 .form-control{
     border:0;
     text-align: center;
@@ -81,6 +101,30 @@ form{
     top:2.5vh;
     left: 2.5vw;
 }
+.download{
+  color: rgb(221, 212, 212);
+  font-size: 2rem;
+  position: absolute;
+  top:2.5vh;
+  right: 2.5vw;
+}
+.download:hover{
+  color: #fff;
+}
+.logout{
+  color: rgb(221, 212, 212);
+  font-size: 2rem;
+  position: absolute;
+  top:2.5vh;
+  right: 2.5vw;
+}
+.logout:hover{
+  color: #fff;
+}
 .back:hover{
     color: #fff;
 }
+.head{
+    display: inline-block;
+    margin-left: 50vw;
+} 

@@ -11,12 +11,20 @@
     <link href="{% static 'css/admin.css'%}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <title>200102074</title>
+    <title>{{tt}}</title>
 </head>
-
+<style>
+  td:hover{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  transform: scale(1.05);
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+</style>
 <body>
-    <div class="cover">
-        <a href='/'><i class="fa fa-arrow-alt-circle-left back"></i></a>
+  <div class="cover">
+      <a href='/'><i class="fa fa-arrow-left back"></i></a>
         <div class="board">
             <h1>Welcome {{tt}} !</h1><br><br>
             
@@ -92,7 +100,7 @@
                 </table>
             </div>
         </div>
-        <a id="download-button" href='#'>Download</button>
+      <a id="download-button" href='#' class="download"><i class="fa fa-download"></i></button>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -115,6 +123,26 @@
             $("#download-button").attr("download", "TimeTable.png").attr("href", newData);
         });
     });
-    console.log("huehue")
+
+    const clrs=["#DD4124" ,"#00A170", "#D65076" , '#BC243C' , "#45B8AC" , "#5B5EA6" , "#9B2335" , "#C3447A" , '#6B5B95' ] ;
+    const tds = document.querySelectorAll('td') ;
+    var idx = 0 ;
+    var obj = {"":'#88B04B'} ;
+    tds.forEach((ele)=>{
+      if (obj[`${ele.innerText}`]==null && ele.innerText!=""){
+        obj[`${ele.innerText}`]=clrs[idx++] ;
+      }
+    })
+    console.log(obj) ;
+    tds.forEach((ele)=>{
+    ele.style.backgroundColor=obj[`${ele.innerText}`] ;
+    })
+    // for(let i=1;i<39;i++){
+    //   if(tds[i].innerText === tds[i-1].innerText && tds[i].innerText === tds[i+1].innerText){
+    //     tds[i-1].innerText="";
+    //     tds[i+1].innerText="";
+    //   }
+    // }
+    
 </script>
 </html>
