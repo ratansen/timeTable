@@ -6,9 +6,10 @@
     font-family: 'Noto Sans JP';
 }
 .bg{
-    background-image:linear-gradient( 
+    /* background-image:linear-gradient( 
         270deg
-        , rgba(176, 42, 42, .16) 0%, rgba(176, 42, 42, .56) 18.45%, rgba(176, 42, 42, .8) 49.67%, rgba(176, 42, 42, .56) 82.52%, rgba(176, 42, 42, .196364) 99.7%, rgba(189, 40, 40, 0) 99.71%, rgba(203, 56, 55, 0) 99.72%, rgba(203, 56, 55, .16) 99.73%), url('/static/images/bg.png');
+        , rgba(176, 42, 42, .16) 0%, rgba(176, 42, 42, .56) 18.45%, rgba(176, 42, 42, .8) 49.67%, rgba(176, 42, 42, .56) 82.52%, rgba(176, 42, 42, .196364) 99.7%, rgba(189, 40, 40, 0) 99.71%, rgba(203, 56, 55, 0) 99.72%, rgba(203, 56, 55, .16) 99.73%), url('/static/images/bg2.png'); */
+        background-image: url('/static/images/bg2.png');;
     height: 100vh;
     width: 100vw;
     background-size: cover;
@@ -54,11 +55,17 @@
     padding: 20px auto;
     text-align: center;
     background-color: rgb(221, 169, 169,0);
-    border: 2px solid rgb(255,255,255,0.5);
+    border: 5px solid rgb(255,255,255,0.5);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     letter-spacing: 10px;
+    transition: all 0.5s;
 }
+.roll-input:focus{
+    border: 5px solid rgb(255,255,255,1);
+    box-shadow: 0px 0px 40px 0px rgb(255, 255, 255);
+}
+
 .go{
     display: flex;
     justify-content: center;
@@ -80,9 +87,25 @@
 input:focus{
     outline: none;
 }
-.admin{
+
+.signin{
+    color: rgb(221, 212, 212);
+    font-size: 2rem;
     position: absolute;
     bottom: 5px;
     right: 5px;
-    font-size: 1rem;
+}
+.signin:hover{
+    color: #fff;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
